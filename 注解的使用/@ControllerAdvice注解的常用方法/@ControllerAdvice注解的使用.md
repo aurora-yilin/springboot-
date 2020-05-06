@@ -1,6 +1,6 @@
 # 一、@ControllerAdvice注解的使用
 
-1.1该注解只对Controller层抛出的异常有效，相当于Controller注解针对处理异常的升级版本，该注解所捕捉的异常都是事先定义好的异常。通常都是自定义一个异常类，然后用于处理对应的异常。
+## 1.1该注解只对Controller层抛出的异常有效，相当于Controller注解针对处理异常的升级版本，该注解所捕捉的异常都是事先定义好的异常。通常都是自定义一个异常类，然后用于处理对应的异常。
 
 ```java
 package com.oRuol.oRuolCache.controller.exceptionHandler;
@@ -48,3 +48,18 @@ public class MyExceptionHandler {
 }
 ```
 
+## 1.2自定义的异常
+
+```java
+package com.oRuol.oRuolCache.exception;
+
+/**
+ * @author oRuol
+ * @Date 2020/4/9 16:25
+ */
+public class UserNotExistException extends RuntimeException {
+    public UserNotExistException(String message){
+        super(message);
+    }
+}
+```
