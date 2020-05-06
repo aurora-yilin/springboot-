@@ -207,7 +207,7 @@ import java.io.IOException;
 public class MyAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        Render.respJson(accessDeniedException.getMessage(),response);
+        Render.respJson(accessDeniedException.getMessage()+"当前用户不具有该访问权限",response);
     }
 }
 ```
@@ -235,7 +235,7 @@ import java.io.IOException;
 public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        Render.respJson(authException.getMessage(), response);
+        Render.respJson(authException.getMessage()+"无权匿名访问", response);
     }
 }
 ```
