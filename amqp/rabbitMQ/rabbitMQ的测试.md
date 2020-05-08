@@ -190,17 +190,25 @@ spring.rabbitmq.password=guest
 
 ## 1.5rabbitMQ的exchanges配置
 
-![](RabbitMQConfigpicture/exchanges.PNG)
+![](./RabbitMQConfigpicture/exchanges.PNG)
+
+
 
 ## 1.5rabbitMQ的Queues配置
 
-![](RabbitMQConfigpicture\Queues.PNG)
+![](./RabbitMQConfigpicture\Queues.PNG)
 
 ## 1.6rabbitMQ的exchanges对应的bindings规则
 
-![](RabbitMQConfigpicture\exchangeDirectBindings.PNG)
+![](./RabbitMQConfigpicture\exchangeDirectBindings.PNG)
 
-![](RabbitMQConfigpicture\exchangeFanoutBindings.PNG)
 
-![](RabbitMQConfigpicture\exchangeTopicBindings.PNG)
+
+![](./RabbitMQConfigpicture\exchangeFanoutBindings.PNG)
+
+
+
+![](./RabbitMQConfigpicture\exchangeTopicBindings.PNG)
+
+
 
