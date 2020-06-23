@@ -346,7 +346,86 @@ public class Result<T> {
 }
 ```
 
-## 1.9pom文件
+## 1.9UserDetailsService接口的实现类
+
+```java
+package com.oRuol.springsecuritydemo.bean;
+
+import com.oRuol.springsecuritydemo.config.SecurityConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * @author oRuol
+ * @Date 2020/5/4 14:43
+ */
+public class User implements UserDetails {
+    @NotNull
+    private String userName;
+    private Integer userSex;
+    private String userAuthority;
+    private String userAddress;
+    private String userPassword;
+
+    public User() {
+        super();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> list = new ArrayList<>();
+        Arrays.asList(userAuthority.split(",")).
+                forEach((String authority)->{
+                    list.add(new SimpleGrantedAuthority(authority));
+                });
+        return list;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.userPassword;
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+
+```
+
+
+
+## 1.10pom文件
 
 ```pom
 <?xml version="1.0" encoding="UTF-8"?>
