@@ -346,7 +346,7 @@ public class Result<T> {
 }
 ```
 
-## 1.9UserDetailsService接口的实现类
+## 1.9UserDetails接口的实现类
 
 ```java
 package com.oRuol.springsecuritydemo.bean;
