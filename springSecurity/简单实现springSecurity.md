@@ -423,9 +423,46 @@ public class User implements UserDetails {
 
 ```
 
+## 1.10UserDetailsService接口的实现
+
+```java
+package com.oRuol.springsecuritydemo.config;
+
+import com.oRuol.springsecuritydemo.bean.User;
+import com.oRuol.springsecuritydemo.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author oRuol
+ * @Date 2020/5/4 15:27
+ */
+@Service
+public class UserRepositoryDetailService implements UserDetailsService {
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User userInfo = userMapper.findUserByName(username);
+        if(userInfo != null){
+            return userInfo;
+        }
+        else {
+            throw new UsernameNotFoundException("user"+username+"notFound");
+        }
+    }
+}
+
+```
 
 
-## 1.10pom文件
+
+## 1.11pom文件
 
 ```pom
 <?xml version="1.0" encoding="UTF-8"?>
